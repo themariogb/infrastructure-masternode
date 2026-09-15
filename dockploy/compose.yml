@@ -1,0 +1,14 @@
+services:
+  dockploy:
+    image: luisnquin/dockploy:latest
+    container_name: dockploy
+    restart: unless-stopped
+    ports:
+      - "3300:3000"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - dockploy_data:/app/data
+
+volumes:
+  dockploy_data:
+    name: dockploy-data
